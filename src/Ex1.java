@@ -53,9 +53,25 @@ public class Ex1 {
                 if (i == ar.size() - 2) {
                     System.out.println(ar.get(i + 1) + " - " + check);
                 }
-
             }
+        }
+    }
 
+    static void repeaterV2(ArrayList<String> arr) {
+        TreeSet<String> set = new TreeSet<>(arr);
+        Iterator<String> it = set.iterator();
+        String test;
+        int count = 0;
+        while (it.hasNext()) {
+            test = it.next();
+            for (String s : arr) {
+                if (test.equals(s)) {
+                    count++;
+                }
+            }
+            System.out.print(test+" - ");
+            System.out.println(count);
+            count = 0;
         }
     }
 
@@ -63,5 +79,8 @@ public class Ex1 {
     public static void main(String[] args) {
 
         ArrayList<String> color = new ArrayList<>(List.of("Красный", "Фиолетовый", "Зеленый", "Красный", "Фиолетовый", "Фиолетовый", "Синий", "Зеленый", "Желтый", "Зеленый", "Желтый", "Синий"));
+        repeaterV2(color);
+        System.out.println("---");
+        repeaters(color);
     }
 }
