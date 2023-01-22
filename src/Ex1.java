@@ -69,18 +69,59 @@ public class Ex1 {
                     count++;
                 }
             }
-            System.out.print(test+" - ");
+            System.out.print(test + " - ");
             System.out.println(count);
             count = 0;
         }
     }
 
+    static void replace(List<Integer> arr) {
+        Set<Integer> set = new HashSet<>(arr);
+        List<Integer> temp = new ArrayList<>();
+        Iterator<Integer> it = set.iterator();
+        int test;
+        int count = 0;
+        while (it.hasNext()) {
+            test = it.next();
+            for (Integer integer : arr) {
+                if (test == integer) {
+                    count++;
+                }
+            }
+            if (count == 1) {
+                temp.add(test);
+            }
+            count = 0;
+        }
+        for (int i = 0; i < arr.size(); i++) {
+            for (Integer integer : temp) {
+                if (arr.get(i) == integer.intValue()) {
+                    arr.set(i, -1);
+                }
+            }
+            if (arr.get(i) != -1) {
+                arr.set(i, 0);
+            }
+        }
+
+    }
+
+    static void sumOriginal(List<Integer> list) {
+        int sum = 0;
+        replace(list);
+        System.out.println(list);
+        for (Integer integer : list) {
+            sum += Math.abs(integer);
+        }
+        System.out.println("Всего " + sum + " уникальных значений.");
+
+
+    }
 
     public static void main(String[] args) {
 
         ArrayList<String> color = new ArrayList<>(List.of("Красный", "Фиолетовый", "Зеленый", "Красный", "Фиолетовый", "Фиолетовый", "Синий", "Зеленый", "Желтый", "Зеленый", "Желтый", "Синий"));
-        repeaterV2(color);
-        System.out.println("---");
-        repeaters(color);
+        List<Integer> integer = new ArrayList<>(Arrays.asList(3, 5, 6, 5, 4, 6, 5, 3, 6, 1, 9, 2, 5, 8, 2, 8, 6, 4, 11));
+        sumOriginal(integer);
     }
 }
