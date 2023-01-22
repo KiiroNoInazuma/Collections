@@ -115,14 +115,15 @@ public class Ex1 {
         }
         System.out.println("Всего " + sum + " уникальных значений.");
 
-
     }
+
+
+
 
     public static void main(String[] args) {
 
         ArrayList<String> color = new ArrayList<>(List.of("Красный", "Фиолетовый", "Зеленый", "Красный", "Фиолетовый", "Фиолетовый", "Синий", "Зеленый", "Желтый", "Зеленый", "Желтый", "Синий"));
-        List<Integer> integer = new ArrayList<>(Arrays.asList(3, 5, 6, 5, 4, 6, 5, 3, 6, 1, 9, 2, 5, 8, 2, 8, 6, 4, 11));
-        sumOriginal(integer);
+
 
     }
 }
